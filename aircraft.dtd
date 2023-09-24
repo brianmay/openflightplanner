@@ -1,0 +1,62 @@
+<!ELEMENT Aircraft  (Callsign,Full_Callsign,Type,Approved_Type,Colour,Description,Equipment,Wake,Fuel_Consumption,Air_Speed,Limits,Loading,COG,Basic_Empty_Weight,Arm)>
+<!ATTLIST Aircraft
+        id              ID      #IMPLIED
+>
+
+<!ELEMENT Callsign (#PCDATA)>
+<!ELEMENT Full_Callsign (#PCDATA)>
+<!ELEMENT Type (#PCDATA)>
+<!ELEMENT Approved_Type EMPTY>
+<!ELEMENT Colour (#PCDATA)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Wake (#PCDATA)>
+<!ELEMENT Basic_Empty_Weight (#PCDATA)>
+
+<!-- Equipment -->
+<!ELEMENT Equipment (DME?,GNSS?,INS?,RNP?,UHF?,ADF?,VOR?,HF?,DLink?,TAX?,VHF?,GPS?,ADS?,SSR?)>
+<!ELEMENT DME EMPTY>
+<!ELEMENT GNSS EMPTY>
+<!ELEMENT INS EMPTY>
+<!ELEMENT RNP EMPTY>
+<!ELEMENT UHF EMPTY>
+<!ELEMENT ADF EMPTY>
+<!ELEMENT VOR EMPTY>
+<!ELEMENT HF EMPTY>
+<!ELEMENT DLink EMPTY>
+<!ELEMENT TAC EMPTY>
+<!ELEMENT VHF EMPTY>
+<!ELEMENT GPS EMPTY>
+<!ELEMENT ADS EMPTY>
+<!ELEMENT SSR (#PCDATA)>
+
+<!-- Fuel_Consumption and Airspeed -->
+<!ELEMENT Fuel_Consumption (Climb,Cruise,Descend,Holding,Taxi,AWK)>
+<!ELEMENT Air_Speed (Climb,Cruise,Descend)>
+<!ELEMENT Climb (#PCDATA)>
+<!ELEMENT Cruise (#PCDATA)>
+<!ELEMENT Descend (#PCDATA)>
+<!ELEMENT Holding (#PCDATA)>
+<!ELEMENT Taxi (#PCDATA)>
+<!ELEMENT AWK (#PCDATA)>
+
+<!-- Limits -->
+<!ELEMENT Limits (MTOW,MLW,MZFW)>
+<!ELEMENT MTOW (#PCDATA)>
+<!ELEMENT MLW (#PCDATA)>
+<!ELEMENT MZFW (#PCDATA)>
+
+<!-- Loading -->
+<!ELEMENT Loading (Seat+,Fuel_Tank+)>
+
+<!-- Seat and Fuel Tank -->
+<!ELEMENT Seat (Description,Arm,Type,Maximum)>
+<!ELEMENT Fuel_Tank (Description,Arm,Maximum)>
+<!ELEMENT Arm (#PCDATA)>
+<!ELEMENT Maximum (#PCDATA)>
+
+<!-- COG -->
+<!ELEMENT COG (Entry+)>
+
+<!-- Entry -->
+<!ELEMENT Entry (Arm,Weight)>
+<!ELEMENT Weight (#PCDATA)>

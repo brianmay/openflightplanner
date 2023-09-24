@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE Flightplan SYSTEM "../flightplan.dtd">
+<Flightplan>
+  <Flight>
+    <Departure_Time>2006-11-18 10:00:00</Departure_Time>
+    <Takeoff>YLIL</Takeoff>
+    <Load>
+      <Seat>
+        <Weight>60</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Fuel_Tank>
+        <Litres>181</Litres>
+        <Type>Full</Type>
+      </Fuel_Tank>
+    </Load>
+
+    <Leg>
+      <Altitude>3500</Altitude>
+      <Lowest_Safe_Altitude>2500</Lowest_Safe_Altitude>
+      <Destination>WAR</Destination>
+      <Destination_Altitude>2500</Destination_Altitude>
+      <Wind>000/00</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>3500</Altitude>
+      <Lowest_Safe_Altitude>2500</Lowest_Safe_Altitude>
+      <Destination>YLTV</Destination>
+      <Destination_Altitude>2500</Destination_Altitude>
+      <Wind>000/00</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>2500</Lowest_Safe_Altitude>
+      <Destination>WAR</Destination>
+      <Destination_Altitude>2500</Destination_Altitude>
+      <Wind>000/00</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>2500</Lowest_Safe_Altitude>
+<!--      <Destination>YLIL</Destination> -->
+      <Destination_Altitude>2500</Destination_Altitude>
+      <Wind>000/00</Wind>
+    </Leg>
+
+    <Landing>YLIL</Landing>
+  </Flight>
+
+</Flightplan>

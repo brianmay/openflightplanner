@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE Flight SYSTEM "../flightplan.dtd">
+<Flight>
+  <Departure_Time>2003-1-2 11:22:33</Departure_Time>
+  <Takeoff>YLIL</Takeoff>
+  <Load>
+    <Seat>
+      <Weight>60</Weight>
+      <Content>Passenger</Content>
+    </Seat>
+    <Fuel_Tank>
+      <Litres>180</Litres>
+    </Fuel_Tank>
+  </Load>
+
+  <Leg>
+    <Distance>10</Distance>
+    <Track>100</Track>
+    <Altitude>1500</Altitude>
+    <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+    <Destination>YLIL</Destination>
+    <Destination_Altitude>1500</Destination_Altitude>
+    <Wind>230/15</Wind>
+  </Leg>
+
+  <Landing>YLIL</Landing>
+
+  <Alternate>
+    <Distance>10</Distance>
+    <Track>100</Track>
+    <Altitude>1500</Altitude>
+    <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+    <Destination>YLIL</Destination>
+    <Destination_Altitude>1500</Destination_Altitude>
+    <Wind>230/15</Wind>
+  </Alternate>
+</Flight>

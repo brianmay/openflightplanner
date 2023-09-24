@@ -1,0 +1,34 @@
+with "xmlada2";
+with "gnade";
+with "aunit";
+project Debug is
+
+   for Source_Dirs use (
+       ".",
+       "./tests/",
+       "./3rdparty/"
+   );
+   for Object_Dir use "+debug/objects";
+   for Exec_Dir use "+debug";
+   for Main use ("flightplanner","harness");
+
+   package Builder is
+      for Default_Switches ("ada")
+         use ("-g");
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada")
+         use ("-fstack-check", "-gnata", "-gnato");
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-E");
+   end Binder;
+
+   package Linker is
+      for Default_Switches ("ada") use ("-g","-lgnadesqlite",
+                                Xmlada2.Linker_Switches, aunit.Linker_Switches);
+   end Linker;
+
+end Debug;

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE Aircraft SYSTEM "../aircraft.dtd">
+<Aircraft>
+  <Callsign>CWW</Callsign>
+  <Full_Callsign>VH-CWW</Full_Callsign>
+  <Type>PA28</Type>
+  <Approved_Type/>
+  <Colour>Red/White</Colour>
+  <Description>Piper Warrior</Description>
+  <Equipment>
+    <VHF/>
+    <SSR>Mode_C</SSR>
+  </Equipment>
+  <Wake>Light</Wake>
+  <Fuel_Consumption>
+    <Climb>30</Climb>
+    <Cruise>30</Cruise>
+    <Descend>30</Descend>
+    <Holding>30</Holding>
+    <Taxi>30</Taxi>
+    <AWK>30</AWK>
+  </Fuel_Consumption>
+  <Air_Speed>
+    <Cruise>100</Cruise>
+    <Climb>100</Climb>
+    <Descend>100</Descend>
+  </Air_Speed>
+  <Limits>
+    <MTOW>1055</MTOW>
+    <MLW>1055</MLW>
+    <MZFW>1055</MZFW>
+  </Limits>
+  <Loading>
+    <Seat>
+      <Description>Front Row</Description>
+      <Arm>2044.7</Arm>
+      <Type>Always_A_Seat</Type>
+      <Maximum>100</Maximum>
+    </Seat>
+    <Seat>
+      <Description>Front Row</Description>
+      <Arm>2044.7</Arm>
+      <Type>Always_A_Seat</Type>
+      <Maximum>100</Maximum>
+    </Seat>
+    <Seat>
+      <Description>Back Row</Description>
+      <Arm>2999.7</Arm>
+      <Type>Always_A_Seat</Type>
+      <Maximum>100</Maximum>
+    </Seat>
+    <Seat>
+      <Description>Back Row</Description>
+      <Arm>2999.7</Arm>
+      <Type>Always_A_Seat</Type>
+      <Maximum>100</Maximum>
+    </Seat>
+    <Fuel_Tank>
+      <Description>Main Fuel Tanks</Description>
+      <Arm>2413.0</Arm>
+      <Maximum>181</Maximum>
+    </Fuel_Tank>
+  </Loading>
+  <COG>
+    <Entry>
+      <Arm>2110</Arm>
+      <Weight>600</Weight>
+    </Entry>
+    <Entry>
+      <Arm>2110</Arm>
+      <Weight>900</Weight>
+    </Entry>
+    <Entry>
+      <Arm>2220</Arm>
+      <Weight>1055</Weight>
+    </Entry>
+    <Entry>
+      <Arm>2370</Arm>
+      <Weight>1055</Weight>
+    </Entry>
+    <Entry>
+      <Arm>2370</Arm>
+      <Weight>600</Weight>
+    </Entry>
+  </COG>
+  <Basic_Empty_Weight>674</Basic_Empty_Weight>
+  <Arm>2205</Arm>
+</Aircraft>

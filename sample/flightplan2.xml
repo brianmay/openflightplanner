@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE Flightplan SYSTEM "../flightplan.dtd">
+<Flightplan>
+  <Flight>
+    <Departure_Time>2003-1-2 11:22:33</Departure_Time>
+    <Takeoff>YLIL</Takeoff>
+    <Load>
+      <Seat>
+        <Weight>60</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Seat>
+        <Weight>85</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Seat>
+        <Weight>65</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Seat>
+        <Weight>75</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Seat>
+        <Weight>20</Weight>
+        <Content>Luggage</Content>
+      </Seat>
+      <Fuel_Tank>
+        <Litres>181</Litres>
+        <Type>Full</Type>
+      </Fuel_Tank>
+    </Load>
+
+    <Leg>
+      <Distance>39</Distance>
+      <Track>125</Track>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>2500</Lowest_Safe_Altitude>
+      <Destination>WAR</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>020/20</Wind>
+    </Leg>
+    <Leg>
+      <Distance>25</Distance>
+      <Track>085</Track>
+      <Altitude>1500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YLTV</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>020/20</Wind>
+    </Leg>
+    <Leg>
+      <Distance>55</Distance>
+      <Track>060</Track>
+      <Altitude>1500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YBNS</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>020/20</Wind>
+    </Leg>
+
+    <Landing>YBNS</Landing>
+
+  </Flight>
+
+  <Flight>
+    <Departure_Time>2003-1-2 11:22:33</Departure_Time>
+    <Takeoff>YBNS</Takeoff>
+    <Load>
+      <Fuel_Tank>
+        <Litres>181</Litres>
+        <Type>Full</Type>
+      </Fuel_Tank>
+    </Load>
+
+    <Leg>
+      <Distance>102</Distance>
+      <Track>070</Track>
+      <Altitude>1500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YMCO</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>020/20</Wind>
+    </Leg>
+    <Leg>
+      <Distance>21</Distance>
+      <Track>000</Track>
+      <Altitude>1500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YMER</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>040/25</Wind>
+    </Leg>
+
+    <Landing>YMER</Landing>
+
+  </Flight>
+</Flightplan>

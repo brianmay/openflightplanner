@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE Flightplan SYSTEM "../flightplan.dtd">
+<Flightplan>
+  <Flight>
+    <Departure_Time>2004-1-1 11:22:33</Departure_Time>
+    <Takeoff>YLIL</Takeoff>
+    <Load>
+      <Seat>
+        <Weight>60</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Seat>
+        <Weight>85</Weight>
+        <Content>Passenger</Content>
+      </Seat>
+      <Fuel_Tank>
+        <Litres>181</Litres>
+        <Type>Full</Type>
+      </Fuel_Tank>
+    </Load>
+
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>2500</Lowest_Safe_Altitude>
+      <Destination>DSN</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+
+    <Landing>YMEN</Landing>
+  </Flight>
+
+  <Flight>
+    <Departure_Time>2003-1-2 11:22:33</Departure_Time>
+    <Takeoff>YMEN</Takeoff>
+
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>WES</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>LVTN</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YBSS</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YBLT</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YBDG</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Destination>YVTN</Destination>
+      <Destination_Altitude>1500</Destination_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+    <Leg>
+      <Altitude>2500</Altitude>
+      <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+      <Wind>320/10</Wind>
+    </Leg>
+
+    <Landing>YLIL</Landing>
+
+  </Flight>
+</Flightplan>

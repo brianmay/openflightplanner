@@ -1,0 +1,16 @@
+WARNING: must not be used for operational flight purposes unless
+you manually check *everything* this program produces.
+
+I will not be held legally or morally responsible for any problems
+that occur as a result of using this program.
+
+I have not tested this program sufficiently. Even if it is not broken at
+the moment, future changes could break it.
+
+Hopefully I will be able to add testing structure to try and ensure
+results will always be accurate, but even this this warning still
+applies.
+
+If you find any bugs please let me know.
+
+Brian May <bam@snoopy.apana.org.au>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE Equipment SYSTEM "../../aircraft.dtd">
+<Equipment>
+  <VHF/>
+  <SSR>Mode_C</SSR>
+</Equipment>

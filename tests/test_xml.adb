@@ -1,0 +1,247 @@
+-----------------------------------------------------------------------
+--          Flightplanner - Open source flightplanner                --
+--                                                                   --
+--                     Copyright (C) 2002-2004                       --
+--                            Brian May                              --
+--                                                                   --
+-- This program is free software; you can redistribute it and/or     --
+-- modify it under the terms of the GNU General Public               --
+-- License as published by the Free Software Foundation; either      --
+-- version 2 of the License, or (at your option) any later version.  --
+--                                                                   --
+-- This program is distributed in the hope that it will be useful,   --
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of    --
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU --
+-- General Public License for more details.                          --
+--                                                                   --
+-- You should have received a copy of the GNU General Public         --
+-- License along with this program; if not, write to the             --
+-- Free Software Foundation, Inc., 59 Temple Place - Suite 330,      --
+-- Boston, MA 02111-1307, USA.                                       --
+-----------------------------------------------------------------------
+with AUnit.Test_Cases.Registration;
+use AUnit.Test_Cases.Registration;
+
+with AUnit.Assertions; use AUnit.Assertions;
+
+with Aircrafts;
+use Aircrafts;
+
+with Xml;
+use Xml;
+
+with Text;
+use Text;
+
+with Wabs;
+use Wabs;
+use Wabs.Cog_Limits_Lists;
+
+with Ada.Containers;
+use Ada.Containers;
+
+with Legs;
+use Legs;
+
+with Flights;
+use Flights;
+
+with Units;
+use Units;
+
+with Ada.Calendar;
+use Ada.Calendar;
+
+with Unchecked_Deallocation;
+
+with Config;
+
+--  Template for test case body.
+package body Test_XML is
+   procedure Free is
+           new Unchecked_Deallocation(Leg,Leg_Access);
+   procedure Free is
+           new Unchecked_Deallocation(Flight,Flight_Access);
+
+   --  Example test routine. Provide as many as are needed:
+   procedure Test_Equipment (R : in out AUnit.Test_Cases.Test_Case'Class);
+
+   procedure Set_Up (T : in out Test_Case) is
+   begin
+      Config.Initialize;
+   end Set_Up;
+
+   procedure Tear_Down (T : in out Test_Case) is
+   begin
+      Config.Finalize;
+   end Tear_Down;
+
+
+   --  Example test routine. Provide as many as are needed:
+   procedure Test_Equipment(R : in out AUnit.Test_Cases.Test_Case'Class) is
+   begin
+
+      declare
+         A : Equipment;
+         B : Equipment := (VHF=>True, SSR=>Mode_C, Others=>False);
+      begin
+         A := Get_Equipment("tests/data/equipment.xml");
+         Assert (A = B, "Equipment is wrong");
+      end;
+
+   end Test_Equipment;
+
+   procedure Test_Aircraft_Data(R : in out AUnit.Test_Cases.Test_Case'Class) is
+   begin
+
+      declare
+         A : Aircraft_Data := Get_Aircraft_Data("tests/data/aircraft.xml");
+         E : Equipment := (VHF=>True, SSR=>Mode_C, Others=>False);
+	 F : Fuel_Consumption_Record := ( others => 30 );
+	 AS : Air_Speed_Record := ( others => 100 );
+	 L : Weight_Limits := ( others => 1055 );
+	 SF : Seat := (
+			      Description => To_Unbounded_String("Front Row"),
+			      The_Arm => 2044.7,
+			      The_Seat_Type => Always_A_Seat,
+			      Maximum => 100
+		      );
+	 SB : Seat := (
+			      Description => To_Unbounded_String("Back Row"),
+			      The_Arm => 2999.7,
+			      The_Seat_Type => Always_A_Seat,
+			      Maximum => 100
+		      );
+	 FT : Fuel_Tank := (
+			      Description => To_Unbounded_String("Main Fuel Tanks"),
+			      The_Arm => 2413.0,
+			      Maximum => 181
+		      );
+	 C1 : COG_Limits_Entry := (
+			      The_Weight => 600,
+			      The_Arm => 2110.0
+			   );
+	 C2 : COG_Limits_Entry := (
+			      The_Weight => 900,
+			      The_Arm => 2110.0
+			   );
+	 C3 : COG_Limits_Entry := (
+			      The_Weight => 1055,
+			      The_Arm => 2220.0
+			   );
+	 C4 : COG_Limits_Entry := (
+			      The_Weight => 1055,
+			      The_Arm => 2370.0
+			   );
+	 C5 : COG_Limits_Entry := (
+			      The_Weight => 600,
+			      The_Arm => 2370.0
+			   );
+      begin
+         Assert (A.Callsign = "CWW", "Aircraft callsign is wrong");
+         Assert (A.Full_Callsign = "VH-CWW", "Full callsign is wrong");
+         Assert (A.The_Type = "PA28", "Aircraft type is wrong");
+         Assert (A.Approved_Type, "Aircraft approved type is wrong");
+         Assert (A.Colour = "Red/White", "Aircraft colour is wrong");
+         Assert (A.Description = "Piper Warrior", "Aircraft description "&
+			 "is wrong");
+         Assert (A.The_Equipment = E, "Equipment is wrong");
+         Assert (A.The_Wake_Type = Light, "Aircraft wake is wrong");
+         Assert (A.Fuel_Consumption = F, "Fuel consumption is wrong");
+         Assert (A.Air_Speed = AS, "Air speed consumption is wrong");
+         Assert (A.The_Weight_Limits = L, "Aircraft limits is wrong");
+         Assert (A.Seat_List'Length = 4, "Number of seats is wrong");
+         Assert (A.Seat_List(1) = SF, "Aircraft seat 1 is wrong");
+         Assert (A.Seat_List(2) = SF, "Aircraft seat 2 is wrong");
+         Assert (A.Seat_List(3) = SB, "Aircraft seat 3 is wrong");
+         Assert (A.Seat_List(4) = SB, "Aircraft seat 4 is wrong");
+         Assert (A.Fuel_Tank_List'Length = 1, "Number of fuel tanks is wrong");
+         Assert (A.Fuel_Tank_List(1) = FT, "Fuel tank is wrong");
+         Assert (Length(A.COG_Limits) = 5, "Number of COG entries is wrong");
+         Assert (Element(A.COG_Limits,1) = C1, "COG entry 1 is wrong");
+         Assert (Element(A.COG_Limits,2) = C2, "COG entry 2 is wrong");
+         Assert (Element(A.COG_Limits,3) = C3, "COG entry 3 is wrong");
+         Assert (Element(A.COG_Limits,4) = C4, "COG entry 4 is wrong");
+         Assert (Element(A.COG_Limits,5) = C5, "COG entry 5 is wrong");
+         Assert (A.Bew = 674, "Aircraft BEW is wrong");
+         Assert (A.Bew_Arm = 2205.0, "Aircraft Arm is wrong");
+      end;
+
+   end Test_Aircraft_Data;
+
+   procedure Test_Leg(R : in out AUnit.Test_Cases.Test_Case'Class) is
+   begin
+
+      declare
+         L : Leg_Access;
+      begin
+         L := Get_Leg("tests/data/leg.xml");
+         Assert (Get_Distance(L.all) = 10, "Leg distance is wrong");
+         Assert (Get_Track(L.all) = 100, "Leg track is wrong");
+         Assert (Get_Alt(L.all) = 1500, "Leg altitude is wrong");
+         Assert (Get_Lowest_Safe_Alt(L.all) = 1500, "Leg LSALT is wrong");
+         Assert (Get_Destination(L.all).Abbrev = "YLIL", "Leg dest is wrong");
+         Assert (Get_Alt_End(L.all)=1500, "Leg end altitude is wrong");
+         Assert (Get_Wind_Dir(L.all) = 230, "Leg wind direction is wrong");
+         Assert (Get_Wind_Speed(L.all) = 15, "Leg wind speed is wrong");
+
+         Assert (Get_Alt_Start(L.all)=1500, "Leg start altitude is wrong");
+         Assert (Get_Awk_Time(L.all)=0, "Leg AWK Time is wrong");
+         Assert (Get_Awk_Rmk(L.all)="", "Leg AWK RMK wrong");
+         Assert (Get_Holding_Time(L.all)=0, "Leg holding time wrong");
+	 Free(L);
+      end;
+   end Test_Leg;
+
+   procedure Test_Flight(R : in out AUnit.Test_Cases.Test_Case'Class) is
+   begin
+
+      declare
+         F : Flight_Access;
+         S : Aircraft_Change := (
+                Fuel_Tanks => 1,
+                Fuel_Tank_List => (
+                   1 => (
+                      Change => Replace,
+                      Qty => 180
+                   )
+                ),
+                Seats => 1,
+                Seat_List => (
+                   1 => (
+                      Change => Replace,
+                      The_Weight => 60,
+                      Content => Passenger
+                   )
+                )
+             );
+	 DT : Time := Time_Of(2003,1,2,Duration((11*60+22)*60+33));
+      begin
+         F := Get_Flight("tests/data/flight.xml");
+         Assert (Get_Departure_Time(F.all) = DT, "Flight departure time is wrong");
+         Assert (Get_Takeoff(F.all).Abbrev="YLIL", "Flight takeoff is wrong");
+         Assert (Get_Takeoff_Change(F.all)=S,"Flight takeoff change is wrong");
+         Assert (Get_Landing(F.all).Abbrev="YLIL", "Flight landing is wrong");
+	 -- FIXME: check legs
+	 -- FIXME: check alternate
+	 Free(F);
+      end;
+   end Test_Flight;
+
+   --  Register test routines to call:
+   procedure Register_Tests (T : in out Test_Case) is
+   begin
+      --  Repeat for each test routine.
+      Register_Routine(T, Test_Equipment'Access, "Test Equipment parser");
+      Register_Routine(T, Test_Aircraft_Data'Access, "Test Aircraft parser");
+      Register_Routine(T, Test_Leg'Access, "Test Leg parser");
+      Register_Routine(T, Test_Flight'Access, "Test Flight parser");
+   end Register_Tests;
+
+   --  Identifier of test case:
+   function Name (T : Test_Case) return String_Access is
+   begin
+      return  new String'("Test XML code");
+   end Name;
+
+end Test_XML;

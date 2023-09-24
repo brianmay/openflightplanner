@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE Leg SYSTEM "../../aircraft.dtd">
+<Leg>
+  <Departure_Time>2003-1-2 11:22:33</Departure_Time>
+  <Distance>10</Distance>
+  <Track>100</Track>
+  <Altitude>1500</Altitude>
+  <Lowest_Safe_Altitude>1500</Lowest_Safe_Altitude>
+  <Destination>YLIL</Destination>
+  <Destination_Altitude>1500</Destination_Altitude>
+  <Wind>230/15</Wind>
+</Leg>

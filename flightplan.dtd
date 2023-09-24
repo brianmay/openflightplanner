@@ -1,0 +1,33 @@
+<!ELEMENT Flightplan  (Flight+)>
+<!ATTLIST Flightplan
+        id              ID      #IMPLIED
+>
+
+<!-- Flight -->
+<!ELEMENT Flight (Departure_Time,Takeoff,Load?,Leg+,Landing)>
+<!ELEMENT Departure_Time (#PCDATA)>
+<!ELEMENT Takeoff (#PCDATA)>
+<!ELEMENT Landing (#PCDATA)>
+
+<!-- Load -->
+<!ELEMENT Load (Seat*,Fuel_Tank*)>
+
+<!-- Seat -->
+<!ELEMENT Seat (Weight,Content)>
+<!ELEMENT Weight (#PCDATA)>
+<!ELEMENT Content (#PCDATA)>
+
+<!-- Fuel_Tank -->
+<!ELEMENT Fuel_Tank (Litres,Type)>
+<!ELEMENT Litres (#PCDATA)>
+<!ELEMENT Type (#PCDATA)>
+
+<!-- Leg -->
+<!ELEMENT Leg ((Distance,Track)?,Altitude,Lowest_Safe_Altitude,Destination,Destination_Altitude?,Wind)>
+<!ELEMENT Distance (#PCDATA)>
+<!ELEMENT Track (#PCDATA)>
+<!ELEMENT Altitude (#PCDATA)>
+<!ELEMENT Lowest_Safe_Altitude (#PCDATA)>
+<!ELEMENT Destination (#PCDATA)>
+<!ELEMENT Destination_Altitude (#PCDATA)>
+<!ELEMENT Wind (#PCDATA)>
